@@ -190,6 +190,10 @@ Projeyi çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
 
 ---
 
+## Youtube Video Linkim: 
+https://www.youtube.com/watch?v=dFGk1Jw18o8
+
+
 ## Lisans
 Bu proje MIT lisansı altında paylaşılmıştır.
 
