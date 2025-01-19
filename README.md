@@ -3,109 +3,113 @@
 ## Proje Hakkında
 Bu proje, YouTube kanallarına ve videolarına ait verilerin analiz edilmesi, görselleştirilmesi ve modelleme yapılmasını içermektedir. Veri analizi ve makine öğrenimi yöntemleri kullanılarak videoların görüntülenme sayısını tahmin etme amaçlanmıştır. 
 
-Proje, Python programlama dili kullanılarak geliştirilmiş ve aşağıdaki adımları içermektedir:
-1. Veri yükleme ve ön işleme
-2. Veri görselleştirme
-3. İstatistiksel analiz
-4. Makine öğrenimi modelleriyle tahmin
-5. Model performans değerlendirmesi
+Bu çalışma, Python programlama dili kullanılarak gerçekleştirilmiş ve aşağıdaki adımları içermektedir:
+
+1. Veri setlerinin yüklenmesi ve ön işleme adımları.
+2. Verilerin görselleştirilmesi ve ilişkilerinin analizi.
+3. İstatistiksel yöntemlerle değişkenlerin değerlendirilmesi.
+4. Farklı makine öğrenimi algoritmalarının karşılaştırılması ve performans değerlendirmesi.
+5. Modellerin avantaj ve dezavantajlarının yorumlanması.
 
 ---
 
 ## Kullanılan Teknolojiler ve Kütüphaneler
-Proje, aşağıdaki kütüphaneleri ve araçları kullanmaktadır:
+Bu proje için aşağıdaki teknolojiler ve kütüphaneler kullanılmıştır:
 
 ### Temel Kütüphaneler
-- **NumPy**: Sayısal hesaplamalar
-- **Pandas**: Veri işleme ve analizi
+- **NumPy**: Sayısal veri işlemleri için kullanılmıştır.
+- **Pandas**: Veri manipülasyonu ve analizi için tercih edilmiştir.
 
 ### Görselleştirme
-- **Matplotlib**: Grafikler oluşturma
-- **Seaborn**: Veri görselleştirme için gelişmiş araçlar
+- **Matplotlib**: Çeşitli grafikler oluşturulmuştur.
+- **Seaborn**: Daha ayrıntılı ve estetik görselleştirme araçları için kullanılmıştır.
 
 ### Makine Öğrenimi
-- **scikit-learn**: Model seçimi, eğitimi ve değerlendirmesi
-- **XGBoost**: Güçlü gradyan artış modelleri
+- **scikit-learn**: Model eğitimi, değerlendirme metrikleri ve veri ön işleme işlemleri için.
+- **XGBoost**: Gelişmiş gradyan artışı algoritması.
 
 ---
 
 ## Veri Setleri
-Proje, iki farklı CSV dosyasından yüklenen YouTube verilerini kullanır:
+Proje, YouTube'dan elde edilen iki farklı veri setini kullanmıştır:
 
-1. `youtube_channel_info.csv`: Kanallara ait bilgiler.
-2. `youtube_video_info.csv`: Videolara ait bilgiler.
+1. `youtube_channel_info.csv`: Kanallara ilişkin bilgiler.
+2. `youtube_video_info.csv`: Videolara ilişkin detaylı bilgiler.
 
 ### Veri Seti Özellikleri
-- **Video Title**: Videonun başlığı
-- **Video ID**: Videonun benzersiz kimliği
-- **Published Date**: Yayınlanma tarihi
-- **Likes**: Beğeni sayısı
-- **Comments**: Yorum sayısı
-- **Views**: Görüntülenme sayısı
-- **Daily Views**: Günlük görüntülenme sayısı
-- **Daily Likes**: Günlük beğeni sayısı
-- **Video Age (Days)**: Videonun yayınlandığı günden bu yana geçen gün sayısı
-- **(Likes + Comments) / Views**: Beğeni ve yorumların görüntülenme sayısına oranı
+- **Likes**: Videonun aldığı beğeni sayısı.
+- **Comments**: Videoya yapılan yorum sayısı.
+- **Views**: Videonun toplam görüntülenme sayısı.
+- **Daily Views**: Videonun günlük ortalama görüntülenme sayısı.
+- **Daily Likes**: Videonun günlük beğeni sayısı.
+- **Video Age (Days)**: Videonun yayımlandığı günden itibaren geçen gün sayısı.
+- **(Likes + Comments) / Views**: Beğeni ve yorumların toplam görüntülenme sayısına oranı.
 
 ---
 
 ## Uygulama Adımları
 
 ### 1. Veri Yükleme ve Ön İşleme
-- Veri setleri `read_csv` ile yüklendi.
-- İlgisiz sütunlar ("Video Title", "Video ID", "Published Date") veri setinden kaldırıldı.
-- Eksik veriler kontrol edildi.
+- Veri setleri Pandas kütüphanesi kullanılarak yüklendi.
+- "Video Title", "Video ID" ve "Published Date" gibi analizle ilgisiz sütunlar kaldırıldı.
+- Eksik veriler kontrol edildi ve temizlendi.
+- "Views" sütunundaki değerler, MinMaxScaler kullanılarak 0 ile 1000 arasında ölçeklendi.
 
 ### 2. Veri Görselleştirme
-- Scatterplot kullanılarak değişkenler arasındaki ilişkiler incelendi:
-  - Likes vs Views
-  - Comments vs Views
-  - Daily Likes vs Daily Views
-- Korelasyon matrisi oluşturuldu ve ısı haritası ile görselleştirildi.
+- **Likes vs Views** ve **Comments vs Views** gibi ilişkiler scatterplot grafikleriyle incelendi.
+- Korelasyon matrisi oluşturularak değişkenler arasındaki ilişkiler analiz edildi.
 
 ### 3. İstatistiksel Analiz
-- ANOVA testi ile farklı değişkenlerin "Views" üzerinde anlamlı bir etkisi olup olmadığı analiz edildi.
-- Z-skoru yöntemi ile aykırı değerler filtrelendi.
+- ANOVA testi ile "Views" ile diğer sayısal değişkenler arasındaki anlamlı ilişkiler değerlendirildi.
+- Aykırı değerler Z-skoru yöntemiyle belirlendi ve veri seti bu değerlere göre temizlendi.
 
 ### 4. Makine Öğrenimi Modelleri
-Aşağıdaki modeller kullanılarak "Views" değerinin tahmini yapıldı:
+Üç farklı makine öğrenimi algoritması, görüntülenme sayısını tahmin etmek için kullanıldı:
 
-#### 4.1. Linear Regression
+#### Linear Regression
+Bu algoritma, bağımsız değişkenler ile hedef değişken arasındaki doğrusal ilişkiyi modellemek için kullanılmıştır. Linear Regression, basit yapısı ve açıklanabilirliği ile öne çıkmaktadır. Model, veri setindeki ilişkilerin doğrusallığı varsayımına dayanmaktadır. Ancak, karmaşık ilişkilerin bulunduğu durumlarda performans düşüklüğü gösterebilir. Modelin performansı, hedef değişkeni tahmin etme yeteneğinde oldukça başarılıdır, ancak yüksek değişkenlik içeren veri setlerinde sınırlı kalabilir.
 
-- **Değerlendirme**: Linear Regression modeli yüksek bir R² (0.9824) skoru ile başarılı bir performans sergiledi. Ancak, bu model doğrusallık varsayımına dayandığı için karmaşık ilişkilerde daha düşük performans gösterebilir. MSE değerinin büyük olması, yüksek ölçekli veri setlerinden kaynaklanabilir.
+#### Random Forest Regressor
+Bu model, birden fazla karar ağacının birleşiminden oluşan bir gradyan artışı algoritmasıdır. Random Forest, doğrusal olmayan ilişkileri modelleme yeteneği ile Linear Regression'dan ayrılır. Model, özellikle karmaşık veri setlerinde ve çoklu değişkenler arasında güçlü ilişkilerin olduğu durumlarda daha başarılıdır. Ancak, bu modelde overfitting riski bulunmaktadır ve büyük veri setlerinde eğitim süresi daha uzun olabilir. Random Forest, daha fazla esneklik sağlamakla birlikte, açıklanabilirlik açısından Linear Regression'a kıyasla daha karmaşık bir yapıya sahiptir.
 
-#### 4.2. Random Forest Regressor
-
-- **Değerlendirme**: Random Forest modeli, veri setinin karmaşıklığını yakalayarak oldukça iyi bir tahmin gerçekleştirmiştir. Ancak, MSE değerinin Linear Regression modelinden daha yüksek olması, overfitting riskine işaret edebilir. Yine de, bu model geniş veri setlerinde ve karmaşık ilişkilerde etkili bir yöntemdir.
-
-#### 4.3. K-Nearest Neighbors Regressor
-
-- **Değerlendirme**: KNN Regressor, diğer modellere kıyasla daha düşük bir performans sergilemiştir. Özellikle büyük veri setlerinde ve yüksek boyutlu uzaylarda KNN algoritmasının performansı genellikle düşer. Bu durum, modelin yavaş çalışmasına ve doğruluğun azalmasına neden olmuştur.
+#### K-Nearest Neighbors Regressor
+KNN Regressor, verilerin en yakın komşularını baz alarak tahmin yapar. Bu model, basit yapısı nedeniyle bazı durumlarda etkili olsa da, büyük ölçekli veri setlerinde performans sorunları yaşayabilir. Yüksek boyutlu verilerde doğruluğun azalması ve tahmin süresinin uzaması, KNN algoritmasının temel dezavantajlarıdır. Bununla birlikte, veri setindeki ilişkilere bağlı olarak güçlü bir performans gösterebilir. Bu model, genellikle doğrusal olmayan ilişkilerde daha etkili sonuçlar üretebilir, ancak parametre seçimi (örneğin, komşu sayısı) model performansını büyük ölçüde etkileyebilir.
 
 ---
 
-## Model Performans Karşılaştırması
+## Modellerin Genel Karşılaştırması
 
+1. **Linear Regression**:
+   - Basit ve anlaşılır bir modeldir.
+   - Doğrusal ilişkileri iyi modelleyebilir, ancak karmaşık ilişkilerde sınırlı kalabilir.
+   - Hızlı çalışır ve açıklanabilirliği yüksektir.
 
-- **Linear Regression** en yüksek R² skoruna sahip olup, verilere iyi bir uyum sağlamıştır.
-- **Random Forest Regressor**, karmaşık ilişkileri modellemede etkili olsa da, biraz daha düşük bir performans sergilemiştir.
-- **KNN Regressor**, diğer modellere kıyasla daha düşük bir doğruluk sunmuş ve özellikle büyük ölçekli verilere karşı hassasiyet göstermiştir.
+2. **Random Forest Regressor**:
+   - Doğrusal olmayan ilişkilerde üstün performans gösterir.
+   - Esnek bir modeldir ancak eğitim süresi daha uzundur.
+   - Overfitting riski taşır, ancak doğru hiperparametre ayarları ile bu risk azaltılabilir.
+
+3. **KNN Regressor**:
+   - Özellikle küçük ve orta boyutlu veri setlerinde etkili sonuçlar verir.
+   - Büyük veri setlerinde performansı düşebilir.
+   - Parametre seçiminde dikkatli olunması gerekir.
+
+---
+
+## Sonuç ve Öneriler
+- **Linear Regression**, açıklanabilirliği ve hızlı çalışması nedeniyle tercih edilebilir. Ancak karmaşık ilişkilerin olduğu durumlarda daha güçlü modellerle desteklenmelidir.
+- **Random Forest Regressor**, genelde en iyi performansı sağlayan modeldir ve doğrusal olmayan ilişkileri iyi bir şekilde modelleyebilir. Karmaşık veri setlerinde tercih edilmelidir.
+- **KNN Regressor**, veri seti küçük olduğunda etkili bir alternatif olabilir. Ancak yüksek boyutlu veri setlerinde dikkatli bir şekilde değerlendirilmelidir.
 
 ---
 
-## Gereksinimler
-Projeyi çalıştırabilmek için aşağıdaki kütüphanelerin kurulu olması gerekir:
-```bash
-pip install numpy pandas matplotlib seaborn scikit-learn xgboost
-```
+## Projenin Kullanımı
+Projeyi çalıştırmak için aşağıdaki adımları takip edebilirsiniz:
 
----
-
-## Çalıştırma Adımları
-1. Veri setlerini proje dizinine ekleyin.
-2. Python betiğini çalıştırın ya da Jupyter Notebook üzerinde kodu çalıştırın.
-
----
+1. Python ve gerekli kütüphaneler sisteminizde kurulu olmalıdır.
+2. Veri setleri, proje dizininde yer almalıdır.
+3. Python betiği veya Jupyter Notebook üzerinde kod çalıştırılabilir.
+4. Kod çalıştırıldığında sonuçlar görselleştirme ve metrikler ile birlikte ekranda görüntülenir.
 
 ---
 
