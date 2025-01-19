@@ -31,39 +31,39 @@ Bu dosya, projenin veri toplama adımında kritik bir rol oynamaktadır.
 
 Bu dosya, YouTube'dan elde edilen videolara ilişkin bilgileri içerir. İçerdiği sütunlar arasında şunlar yer alır:
 
-(Likes + Comments) / Views: Beğeni ve yorum sayısının toplam izlenmeye oranı.
+`(Likes + Comments) / Views:` Beğeni ve yorum sayısının toplam izlenmeye oranı.
 
-Published Date: Videonun yayınlanma tarihi.
+`Published Date:` Videonun yayınlanma tarihi.
 
-Video ID: Videonun ID numarası.
+`Video ID:` Videonun ID numarası.
 
-Video Title: Videonun başlığı.
+`Video Title:` Videonun başlığı.
 
-Likes: Videonun aldığı beğeni sayısı.
+`Likes:` Videonun aldığı beğeni sayısı.
 
-Comments: Videoya yapılan yorum sayısı.
+`Comments:` Videoya yapılan yorum sayısı.
 
-Views: Videonun toplam görüntülenme sayısı.
+`Views:` Videonun toplam görüntülenme sayısı.
 
-Daily Views: Videonun günlük ortalama görüntülenme sayısı.
+`Daily Views:` Videonun günlük ortalama görüntülenme sayısı.
 
-Daily Likes: Videonun günlük beğeni sayısı.
+`Daily Likes:` Videonun günlük beğeni sayısı.
 
-Video Age (Days): Videonun yayımlandığı günden itibaren geçen gün sayısı.
+`Video Age (Days):` Videonun yayımlandığı günden itibaren geçen gün sayısı.
 
 - youtube_channel_info.csv 
 
 Bu dosya, kanallara ilişkin bilgileri içerir. Aşağıdaki gibi kanal hakkında genel bilgiler sağlar:
 
-Channel Name: Kanalın adı.
+`Channel Name:` Kanalın adı.
 
-Channel ID: Kanalın ID numarası.
+`Channel ID:` Kanalın ID numarası.
 
-Subscribers: Kanalın abone sayısı.
+`Subscribers:` Kanalın abone sayısı.
 
-Total Videos: Kanalda yayınlanan toplam video sayısı.
+`Total Videos:` Kanalda yayınlanan toplam video sayısı.
 
-Views: Kanalın toplam görüntülenme sayısı.
+`Views:` Kanalın toplam görüntülenme sayısı.
 Bu dosya, kanal düzeyindeki genel istatistiklerin analizine olanak tanır.
 
 - youtubeviews.py
