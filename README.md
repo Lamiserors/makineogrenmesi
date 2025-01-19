@@ -16,7 +16,7 @@ Bu çalışma, Python programlama dili kullanılarak gerçekleştirilmiş ve aş
 
 GitHub deposunda yer alan dosyalar ve bu dosyaların işlevleri şu şekildedir:
 
-1. makk.py
+- makk.py
 
 Bu dosya, YouTube'den verilerin çekilmesi için yazılmış Python kodlarını içermektedir. İçeriğinde aşağıdaki işlemler gerçekleştirilir:
 
@@ -27,9 +27,17 @@ Videolara ait beğeni, yorum, görüntülenme sayısı gibi metrikler toplanır.
 Toplanan veriler, CSV formatında saklanır.
 Bu dosya, projenin veri toplama adımında kritik bir rol oynamaktadır.
 
-2. youtube_video_info.csv
+- youtube_video_info.csv
 
 Bu dosya, YouTube'dan elde edilen videolara ilişkin bilgileri içerir. İçerdiği sütunlar arasında şunlar yer alır:
+
+(Likes + Comments) / Views: Beğeni ve yorum sayısının toplam izlenmeye oranı.
+
+Published Date: Videonun yayınlanma tarihi.
+
+Video ID: Videonun ID numarası.
+
+Video Title: Videonun başlığı.
 
 Likes: Videonun aldığı beğeni sayısı.
 
@@ -43,11 +51,13 @@ Daily Likes: Videonun günlük beğeni sayısı.
 
 Video Age (Days): Videonun yayımlandığı günden itibaren geçen gün sayısı.
 
-3. youtube_channel_info.csv
+- youtube_channel_info.csv 
 
 Bu dosya, kanallara ilişkin bilgileri içerir. Aşağıdaki gibi kanal hakkında genel bilgiler sağlar:
 
 Channel Name: Kanalın adı.
+
+Channel ID: Kanalın ID numarası.
 
 Subscribers: Kanalın abone sayısı.
 
@@ -56,7 +66,7 @@ Total Videos: Kanalda yayınlanan toplam video sayısı.
 Views: Kanalın toplam görüntülenme sayısı.
 Bu dosya, kanal düzeyindeki genel istatistiklerin analizine olanak tanır.
 
-4. youtubeviews.py
+- youtubeviews.py
 
 Makine öğrenimi modellerinin uygulanması için geliştirilmiş bir Python betiğidir. Bu dosyada şunlar bulunur:
 
@@ -66,7 +76,7 @@ Model oluşturma: Linear Regression, Random Forest Regressor ve K-Nearest Neighb
 
 Model performansı: Mean Squared Error ve R² metrikleri kullanılarak her modelin performansının değerlendirilmesi.
 
-5. youtubeviews.ipynb
+- youtubeviews.ipynb
 
 Bu Jupyter Notebook dosyası, projenin tüm analizlerini adım adım gerçekleştiren bir not defteri olarak kullanılmıştır. İçerdiği başlıca işlemler şunlardır:
 
@@ -100,7 +110,7 @@ Bu proje için aşağıdaki teknolojiler ve kütüphaneler kullanılmıştır:
 ## Veri Setleri
 Proje, YouTube'dan elde edilen iki farklı veri setini kullanmıştır:
 
-1. `youtube_channel_info.csv`: Kanallara ilişkin bilgiler.
+1. `youtube_channel_info.csv`: Kanala ilişkin bilgiler.
 2. `youtube_video_info.csv`: Videolara ilişkin detaylı bilgiler.
 
 ### Veri Seti Özellikleri
