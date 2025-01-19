@@ -12,7 +12,74 @@ Bu çalışma, Python programlama dili kullanılarak gerçekleştirilmiş ve aş
 5. Modellerin avantaj ve dezavantajlarının yorumlanması.
 
 ---
+## Kullanılan Dosyalar
 
+GitHub deposunda yer alan dosyalar ve bu dosyaların işlevleri şu şekildedir:
+
+1. makk.py
+
+Bu dosya, YouTube'den verilerin çekilmesi için yazılmış Python kodlarını içermektedir. İçeriğinde aşağıdaki işlemler gerçekleştirilir:
+
+Belirli bir kanalın videolarına erişim sağlanır.
+
+Videolara ait beğeni, yorum, görüntülenme sayısı gibi metrikler toplanır.
+
+Toplanan veriler, CSV formatında saklanır.
+Bu dosya, projenin veri toplama adımında kritik bir rol oynamaktadır.
+
+2. youtube_video_info.csv
+
+Bu dosya, YouTube'dan elde edilen videolara ilişkin bilgileri içerir. İçerdiği sütunlar arasında şunlar yer alır:
+
+Likes: Videonun aldığı beğeni sayısı.
+
+Comments: Videoya yapılan yorum sayısı.
+
+Views: Videonun toplam görüntülenme sayısı.
+
+Daily Views: Videonun günlük ortalama görüntülenme sayısı.
+
+Daily Likes: Videonun günlük beğeni sayısı.
+
+Video Age (Days): Videonun yayımlandığı günden itibaren geçen gün sayısı.
+
+3. youtube_channel_info.csv
+
+Bu dosya, kanallara ilişkin bilgileri içerir. Aşağıdaki gibi kanal hakkında genel bilgiler sağlar:
+
+Channel Name: Kanalın adı.
+
+Subscribers: Kanalın abone sayısı.
+
+Total Videos: Kanalda yayınlanan toplam video sayısı.
+
+Views: Kanalın toplam görüntülenme sayısı.
+Bu dosya, kanal düzeyindeki genel istatistiklerin analizine olanak tanır.
+
+4. youtubeviews.py
+
+Makine öğrenimi modellerinin uygulanması için geliştirilmiş bir Python betiğidir. Bu dosyada şunlar bulunur:
+
+Veri ön işleme: Eksik verilerin temizlenmesi, aykırı değerlerin çıkarılması ve verilerin ölçeklenmesi.
+
+Model oluşturma: Linear Regression, Random Forest Regressor ve K-Nearest Neighbors gibi algoritmaların eğitim ve testi.
+
+Model performansı: Mean Squared Error ve R² metrikleri kullanılarak her modelin performansının değerlendirilmesi.
+
+5. youtubeviews.ipynb
+
+Bu Jupyter Notebook dosyası, projenin tüm analizlerini adım adım gerçekleştiren bir not defteri olarak kullanılmıştır. İçerdiği başlıca işlemler şunlardır:
+
+Veri yükleme ve görselleştirme.
+
+ANOVA testi ve korelasyon analizi.
+
+Farklı makine öğrenimi algoritmalarının performansının karşılaştırılması.
+
+Görsellerle desteklenmiş detaylı analizler.
+Bu dosya, projenin en önemli kod ve analiz kısımlarını içermektedir.
+
+---
 ## Kullanılan Teknolojiler ve Kütüphaneler
 Bu proje için aşağıdaki teknolojiler ve kütüphaneler kullanılmıştır:
 
